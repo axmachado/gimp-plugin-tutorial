@@ -15,5 +15,5 @@ Este tutorial construirá um plugin simples, realizando as seguintes operações
 
 ## O tutorial
 
-* *Passo 1* : [docs/passo1.md][Preparando o Ambiente]
+* *Passo 1* : [Preparando o Ambiente](docs/passo1.md)
 
