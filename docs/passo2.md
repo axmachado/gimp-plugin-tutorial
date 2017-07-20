@@ -1,5 +1,7 @@
 # Passo 2 - Primeiro Plugin
 
+Este documento é parte do [tutorial de desenvolvimento de plugins gimp](../README.md).
+
 Como em todo tutorial de programação, o primeiro plugin que criaremos é um
 simples "Olá Mundo".
 
