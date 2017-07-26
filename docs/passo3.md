@@ -55,3 +55,172 @@ A maneira mais simples de fazer buscas neste banco de dados é utilizar o métod
 >>> pdb.query('load')
 ['file-xjt-load', 'file-png-load', 'file-faxg3-load', 'file-openraster-load-thumb', 'file-bz2-load', 'file-ico-load-thumb', 'file-pcx-load', 'file-tiff-load', 'file-cel-load', 'file-sunras-load', 'gimp-register-magic-load-handler', 'file-jpeg-load-thumb', 'file-gbr-load', 'file-svg-load', 'file-sgi-load', 'gimp-xcf-load', 'file-fits-load', 'gimp-register-load-handler', 'gimp-get-module-load-inhibit', 'file-xwd-load', 'file-pat-load', 'file-wmf-load-thumb', 'gimp-file-load-layer', 'file-xpm-load', 'file-psd-load', 'file-pdf-load', 'file-psd-load-thumb', 'file-jp2-load', 'file-ico-load', 'gimp-selection-load', 'file-psp-load', 'file-dicom-load', 'file-pnm-load', 'file-svg-load-thumb', 'gimp-file-load-layers', 'gimp-file-load', 'file-gz-load', 'file-tga-load', 'file-jpeg-load', 'file-wmf-load', 'file-xmc-load-thumb', 'file-openraster-load', 'file-gif-load-thumb', 'gimp-register-thumbnail-loader', 'file-pdf-load-thumb', 'file-eps-load', 'file-ps-load', 'file-raw-load', 'file-gih-load', 'file-xmc-load', 'file-desktop-link-load', 'file-pix-load', 'file-fli-load', 'file-ps-load-thumb', 'file-uri-load', 'file-bmp-load', 'file-ps-load-setargs', 'file-xbm-load', 'file-gif-load', 'gimp-file-load-thumbnail']
 ~~~
+
+Como mostrado acima, o método `query` irá consultar o banco de dados e retornar
+em uma lista todos os nomes de funções cujo nome que contém o texto passado na
+consulta.
+
+Esta lista pode ser mostrada com um pouco mais de informação com o nome da
+função e uma explicação simples sobre ela:
+
+~~~python
+>>> funcoes = [ (item, pdb[item].proc_blurb) for item in pdb.query('load') ] 
+>>> for item in funcoes: print item
+... 
+('file-xjt-load', 'loads files of the jpeg-tar file format')
+('file-png-load', 'Loads files in PNG file format')
+('file-faxg3-load', 'loads g3 fax files')
+('file-openraster-load-thumb', 'loads a thumbnail from an OpenRaster (.ora) file')
+('file-bz2-load', 'loads files compressed with bzip2')
+('file-ico-load-thumb', 'Loads a preview from an Windows ICO file')
+('file-pcx-load', 'Loads files in Zsoft PCX file format')
+('file-tiff-load', 'loads files of the tiff file format')
+('file-cel-load', 'Loads files in KISS CEL file format')
+('file-sunras-load', 'load file of the SunRaster file format')
+('gimp-register-magic-load-handler', 'Registers a file load handler procedure.')
+('file-jpeg-load-thumb', 'Loads a thumbnail from a JPEG image')
+('file-gbr-load', 'Loads GIMP brushes')
+('file-svg-load', 'Loads files in the SVG file format')
+('file-sgi-load', 'Loads files in SGI image file format')
+('gimp-xcf-load', 'Loads file saved in the .xcf file format')
+('file-fits-load', 'load file of the FITS file format')
+('gimp-register-load-handler', 'Registers a file load handler procedure.')
+('gimp-get-module-load-inhibit', 'Get the list of modules which should not be loaded.')
+('file-xwd-load', 'Loads files in the XWD (X Window Dump) format')
+('file-pat-load', "Loads Gimp's .PAT pattern files")
+('file-wmf-load-thumb', 'Loads a small preview from a WMF image')
+('gimp-file-load-layer', 'Loads an image file as a layer for an existing image.')
+('file-xpm-load', 'Load files in XPM (X11 Pixmap) format.')
+('file-psd-load', 'Loads images from the Photoshop PSD file format')
+('file-pdf-load', 'Load file in PDF format')
+('file-psd-load-thumb', 'Loads thumbnails from the Photoshop PSD file format')
+('file-jp2-load', 'Loads JPEG 2000 images.')
+('file-ico-load', 'Loads files of Windows ICO file format')
+('gimp-selection-load', "Deprecated: Use 'gimp-image-select-item' instead.")
+('file-psp-load', 'loads images from the Paint Shop Pro PSP file format')
+('file-dicom-load', 'loads files of the dicom file format')
+('file-pnm-load', 'Loads files in the PNM file format')
+('file-svg-load-thumb', 'Generates a thumbnail of an SVG image')
+('gimp-file-load-layers', 'Loads an image file as layers for an existing image.')
+('gimp-file-load', 'Loads an image file by invoking the right load handler.')
+('file-gz-load', 'loads files compressed with gzip')
+('file-tga-load', 'Loads files of Targa file format')
+('file-jpeg-load', 'loads files in the JPEG file format')
+('file-wmf-load', 'Loads files in the WMF file format')
+('file-xmc-load-thumb', "Loads only first frame of X11 Mouse Cursor's animation sequence which nominal size is the closest of thumb-size to be used as a thumbnail")
+('file-openraster-load', 'load an OpenRaster (.ora) file')
+('file-gif-load-thumb', 'Loads only the first frame of a GIF image, to be used as a thumbnail')
+('gimp-register-thumbnail-loader', 'Associates a thumbnail loader with a file load procedure.')
+('file-pdf-load-thumb', 'Loads a preview from a PDF file.')
+('file-eps-load', 'load Encapsulated PostScript images')
+('file-ps-load', 'load PostScript documents')
+('file-raw-load', 'Load raw images, specifying image information')
+('file-gih-load', 'loads images in GIMP brush pipe format')
+('file-xmc-load', 'Loads files of X11 Mouse Cursor file format')
+('file-desktop-link-load', 'Follows a link to an image in a .desktop file')
+('file-pix-load', 'loads files of the Alias|Wavefront Pix file format')
+('file-fli-load', 'load FLI-movies')
+('file-ps-load-thumb', 'Loads a small preview from a PostScript or PDF document')
+('file-uri-load', 'loads files given an URI')
+('file-bmp-load', 'Loads files of Windows BMP file format')
+('file-ps-load-setargs', 'set additional parameters for procedure file-ps-load')
+('file-xbm-load', 'Load a file in X10 or X11 bitmap (XBM) file format')
+('file-gif-load', 'Loads files of Compuserve GIF file format')
+('gimp-file-load-thumbnail', 'Loads the thumbnail for a file.')
+>>> 
+~~~
+
+Cada entrada no banco de dados PDB corresponde a um objeto da classe
+PDBFunction:
+
+~~~
+class PDBFunction(__builtin__.object)
+ |  Methods defined here:
+ |  
+ |  __call__(...)
+ |      x.__call__(...) <==> x(...)
+ |  
+ |  __repr__(...)
+ |      x.__repr__() <==> repr(x)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  nparams
+ |  
+ |  nreturn_vals
+ |  
+ |  params
+ |  
+ |  proc_author
+ |  
+ |  proc_blurb
+ |  
+ |  proc_copyright
+ |  
+ |  proc_date
+ |  
+ |  proc_help
+ |  
+ |  proc_name
+ |  
+ |  proc_type
+ |  
+ |  return_vals
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |  
+ |  __new__ = <built-in method __new__ of type object>
+ |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+
+~~~
+
+Os atributos do objeto função correspondem aproximadamente aos parâmetros
+passados para a função register:
+
+* *nparams*: Número de parâmetros da função
+* *nreturn_vals*: Número de valores de retorno
+* *params*: Descrição dos parâmetros da função.
+* *proc_author*: Nome do autor da função
+* *proc_blurb*: Texto curto informando o que a função faz
+* *proc_copyright*: Nota de direito autoral
+* *proc_date*: Data para referência do direito autoral
+* *proc_help*: Texto de ajuda de como utilizar a função
+* *proc_name*: Nome da função
+* *proc_type*: Tipo de função
+* *return_vals*: Valores de retorno
+
+O objeto função pode ser acessado no PDB de duas formas:
+
+1. Tratando o PDB como um dicionário e acessando por nome:
+   `pdb['file-png-load']`
+2. Tratando a função como um método do PDB, substituindo os caracteres `-` do
+   nome da função por `_`: `pdb.file_png_load`
+   
+Assim, vejamos no console toda a informação disponível sobre esta função:
+
+~~~python
+>>> funcao = pdb.file_png_load
+>>> print funcao.nparams
+3
+>>> print funcao.nreturn_vals
+1
+>>> print funcao.params
+((0, 'run-mode', 'The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }'), (4, 'filename', 'The name of the file to load'), (4, 'raw-filename', 'The name of the file to load'))
+>>> print funcao.proc_author
+Michael Sweet <mike@easysw.com>, Daniel Skarda <0rfelyus@atrey.karlin.mff.cuni.cz>
+>>> print funcao.proc_blurb
+Loads files in PNG file format
+>>> print funcao.proc_date
+1.3.4 - 03 September 2002
+>>> print funcao.proc_help
+This plug-in loads Portable Network Graphics (PNG) files.
+>>> print funcao.proc_name
+file_png_load
+>>> print funcao.proc_type
+1
+>>> print funcao.return_vals
+((13, 'image', 'Output image'),)
+>>> 
+~~~
