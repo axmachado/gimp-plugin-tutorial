@@ -17,4 +17,6 @@ Este tutorial construirá um plugin simples, realizando as seguintes operações
 
 * *Passo 1* : [Preparando o Ambiente](docs/passo1.md)
 * *Passo 2* : [Primeiro Plugin](docs/passo2.md)
+* *Passo 3* : [Localizando funções do GIMP](docs/passo3.md)
+
 
