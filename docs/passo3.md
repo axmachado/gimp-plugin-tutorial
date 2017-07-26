@@ -200,7 +200,7 @@ O objeto função pode ser acessado no PDB de duas formas:
    
 Assim, vejamos no console toda a informação disponível sobre esta função:
 
-~~~python
+~~~
 >>> funcao = pdb.file_png_load
 >>> print funcao.nparams
 3
@@ -224,3 +224,87 @@ file_png_load
 ((13, 'image', 'Output image'),)
 >>> 
 ~~~
+
+### Entendendo os parâmetros da função.
+
+Cada parâmetro da função é uma tupla, com três elementos:
+```( TIPO, NOME, HELP )```
+
+O tipo do parâmetro é um número inteiro, que corresponde às seguintes
+constantes definidas no módulo gimpfu:
+
+
+| Constante        | Valor | Tipo                                      |
+| ---------        | ----: | ----                                      |
+| `PDB_INT32`      |     0 | Inteiro de 32 bits                        |
+| `PDB_INT16`      |     1 | Inteiro de 16 bits                        |
+| `PDB_INT8`       |     2 | Inteiro de 8 bits                         |
+| `PDB_FLOAT`      |     3 | Valor real (ponto flutuante)              |
+| `PDB_STRING`     |     4 | Valor texto (string)                      |
+| `PDB_INT32ARRAY` |     5 | Array (lista) de números inteiros 32 bits |
+| `PDB_INT16ARRAY` |     6 | Array (lista) de números inteiros 16 bits |
+| `PDB_INT8ARRAY`  |     7 | Array (lista) de números inteiros 8 bits  |
+| `PDB_FLOATARRAY` |     8 | Array (lista) de números reais            |
+| `PDB_STRINGARRAY |     9 | Array (lista) de strings                  |
+| `PDB_COLOR`      |    10 | Objeto Color (Cor)                        |
+| `PDB_ITEM`       |    11 | Objeto Item                               |
+| `PDB_DISPLAY`    |    12 | Objeto Display                            |
+| `PDB_IMAGE`      |    13 | Objeto Image (Imagem)                     |
+| `PDB_LAYER`      |    14 | Objeto Layer (Camada)                     |
+| `PDB_CHANNEL`    |    15 | Objeto Channel (Canal)                    |
+| `PDB_DRAWABLE`   |    16 | Objeto Drawable                           |
+| `PDB_SELECTION`  |    17 | Objeto Selection (Seleção)                |
+| `PDB_COLORARRAY` |    18 | Array (lista) de objetos Color            |
+| `PDB_VECTORS`    |    19 | Objeto Vectors (Vetores)                  |
+| `PDB_PARASITE`   |    20 | Objeto Parasite (Parasita)                |
+| `PDB_STATUS`     |    21 | Objeto Status                             |
+
+Ao registrar uma função no Python-Fu (gimpfu), utiliza-se um outro conjunto de
+constantes, que, além de informar ao gimp o tipo do parâmetro, instrui a
+respeito de como mostrar o quadro de diálogo de entrada dos parâmetros do
+plugin:
+
+| Constante       | Valor | Tipo                                                              |
+| ---             |  ---: | ---                                                               |
+| `PF_INT`        |     0 | Número inteiro (32 bits)                                          |
+| `PF_INT32`      |     0 | Número inteiro (32 bits)                                          |
+| `PF_INT16`      |     1 | Inteiro de 16 bits                                                |
+| `PF_INT8`       |     2 | Inteiro de 8 bits                                                 |
+| `PF_FLOAT`      |     3 | Número real (ponto flutuante)                                     |
+| `PF_STRING`     |     4 | Texto (string)                                                    |
+| `PF_VALUE`      |     4 | Valor em texto (string)                                           |
+| `PF_COLOR`      |    10 | Objeto Color (Cor)                                                |
+| `PF_COLOUR`     |    10 | Objeto Color (Cor)                                                |
+| `PF_ITEM`       |    11 | Objeto Item                                                       |
+| `PF_DISPLAY`    |    12 | Objeto Display                                                    |
+| `PF_IMAGE`      |    13 | Objeto Image (Imagem)                                             |
+| `PF_LAYER`      |    14 | Objeto Layer (Camada)                                             |
+| `PF_CHANNEL`    |    15 | Objeto Channel (Canal)                                            |
+| `PF_DRAWABLE`   |    16 | Objeto Drawable                                                   |
+| `PF_VECTORS`    |    19 | Objeto Vectors (Vetores)                                          |
+| `PF_BOOL`       |  1000 | Valor booleano (sim/não)                                          |
+| `PF_TOGGLE`     |  1000 | Valor booleano (liga/desliga)                                     |
+| `PF_SLIDER`     |  1001 | Valoe entre mínimo e máximo, entrada com slider (mouse)           |
+| `PF_ADJUSTMENT` |  1002 | Valor entre uma faixa mínimo/máximo, entrada como ajuste numérico |
+| `PF_SPINNER`    |  1002 | Valor entre uma faixa mínimo/máximo, entrada como ajuste numérico |
+| `PF_FONT`       |  1003 | Nome de uma fonte, entrada com escolha da fonte                   |
+| `PF_FILE`       |  1004 | Objeto arquivo, entrada com escolha do arquivo                    |
+| `PF_BRUSH`      |  1005 | Nome de um pincel, entrada com escolha do pincel                  |
+| `PF_GRADIENT`   |  1007 | Nome de um gradiente, entrada com escolha do gradiente            |
+| `PF_RADIO`      |  1008 | Escolha entre uma lista de opçoes (radiogroup)                    |
+| `PF_PATTERN`    |  1006 | Nome de um padrão (pattern), entrada com escolha do padrão        |
+| `PF_PALETTE`    |  1010 | Palette de cores                                                  |
+| `PF_FILENAME`   |  1011 | Nome de um arquivo, entrada com escolha do arquivo                |
+| `PF_DIRNAME`    |  1012 | Nome de um diretório, entrada com escolha do diretório            |
+| `PF_OPTION`     |  1013 | Texto, escolhido de uma lista de opções                           |
+
+### Tipo de procedure (proc_type):
+
+| Constante   | Valor | Descrição                          |
+| ---         |  ---: | ---                                |
+| `INTERNAL`  |     0 | Procedure interna do GIMP          |
+| `PLUGIN`    |     1 | Procedure definida em um plugin    |
+| `EXTENSION` |     2 | Procedure definida em uma extensão |
+| `TEMPORARY` |     3 | Procedure temporária               |
+
+
