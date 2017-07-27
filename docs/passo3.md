@@ -225,7 +225,7 @@ file_png_load
 >>> 
 ~~~
 
-### Entendendo os parâmetros da função.
+### Entendendo os parâmetros da função e valores de retorno
 
 Cada parâmetro da função é uma tupla, com três elementos:
 ```( TIPO, NOME, HELP )```
@@ -245,7 +245,7 @@ constantes definidas no módulo gimpfu:
 | `PDB_INT16ARRAY` |     6 | Array (lista) de números inteiros 16 bits |
 | `PDB_INT8ARRAY`  |     7 | Array (lista) de números inteiros 8 bits  |
 | `PDB_FLOATARRAY` |     8 | Array (lista) de números reais            |
-| `PDB_STRINGARRAY |     9 | Array (lista) de strings                  |
+| `PDB_STRINGARRAY`|     9 | Array (lista) de strings                  |
 | `PDB_COLOR`      |    10 | Objeto Color (Cor)                        |
 | `PDB_ITEM`       |    11 | Objeto Item                               |
 | `PDB_DISPLAY`    |    12 | Objeto Display                            |
